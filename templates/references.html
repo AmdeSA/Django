@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} - References {% endblock %}
+{% block content %}
+
+<div class="container">
+  <ol class="breadcrumb my-4">
+    <li class="breadcrumb-tem activate"> References </li>
+  </ol>
+<table class="table">
+<thead class="thead-inverse">
+<tr>
+<th>Name</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  {% for ref in references %}
+<td>
+{{ ref.name }}<br>
+<small style="color: #888">{{ ref.description}}</small>
+</td>
+<td style="color: green;"><a href='{{ref.file}}'>Download <small style="color: green; text-transform: uppercase">[{{ref.extension}}]</small></a><br>
+<small style="color: #777">{{ref.upload_date}} {{ file_size }}</small></td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+</div>
+
+{% endblock %}
